@@ -1,4 +1,3 @@
-git update
 import discord
 import os
 import requests
@@ -129,7 +128,7 @@ async def on_message(message):
       await message.reply("Responding is off.")
 
   if msg.startswith("!status"):
-    await message.reply("We're at 150 lines of code now pog!!")
+    await message.reply("We're at 200 lines of code now pog!!")
   
   if msg.startswith("!who are you"):
     await message.reply("I am a simple bot with very less functions which searches for sad words and returns an encouraging message. Also i give cool inspirational thingies. :D")
@@ -162,9 +161,8 @@ async def on_message(message):
   if msg.startswith("!insult"):
     await message.reply(get_insult())
 
-  if msg.startswith("!compliment"):
-    mention = message.author.mention
-    response = {mention}+(get_compliment())
+  if msg.startswith("!compliment"+discord.Member.mention):
+    response = discord.Member.mention+(get_compliment())
     await message.channel.send(response)
     
 
